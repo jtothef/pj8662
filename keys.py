@@ -6,3 +6,9 @@ hue_ip = ""
 hue_scanner_running = False
 stop_lightsout = False
 lightsout_running = False
+
+#Twitter Consumer keys and access tokens, used for OAuth
+consumer_key = ''
+consumer_secret = ''
+access_token = ''
+access_token_secret = ''

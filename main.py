@@ -5,14 +5,9 @@ from tweepy import API
 from tweepy.streaming import StreamListener
 
 import messageHandler
+import keys
 
 threads = []
-
-# These values are appropriately filled in the code
-consumer_key = ''
-consumer_secret = ''
-access_token = ''
-access_token_secret = ''
 
 def find_between(s, first, last):
     try:
@@ -61,9 +56,9 @@ class StdOutListener( StreamListener ):
 def main():
 
     try:
-        auth = OAuthHandler(consumer_key, consumer_secret)
+        auth = OAuthHandler(keys.consumer_key, keys.consumer_secret)
         auth.secure = True
-        auth.set_access_token(access_token, access_token_secret)
+        auth.set_access_token(keys.access_token, keys.access_token_secret)
 
         api = API(auth)
 

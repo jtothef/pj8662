@@ -3,9 +3,18 @@
 
 hue_api = ""
 hue_ip = ""
+twitter_username= ""
+
 hue_scanner_running = False
+
 stop_lightsout = False
 lightsout_running = False
+
+police_running = False
+stop_police = False
+
+ttr_running = False
+stop_ttr = False
 
 #Twitter Consumer keys and access tokens, used for OAuth
 consumer_key = ''

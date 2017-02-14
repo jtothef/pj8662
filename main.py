@@ -33,7 +33,7 @@ class StdOutListener( StreamListener ):
     def on_data( self, status ):
         # print("Entered on_data()")
         print(status)
-        if '"screen_name":""' in status:
+        if '"screen_name":"'+keys.twitter_username+'"' in status:
             text = find_between(status,'text":"', '"')
             print("Text: " + text, flush = True)
             messageHandler.handlemessage(text)

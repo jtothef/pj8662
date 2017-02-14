@@ -7,6 +7,7 @@ import twitterSender
 
 huescanthread = threading.Thread(target=huescanner.scan)
 lightsoutthread = threading.Thread(target=hueController.lightsout)
+ttrthread = threading.Thread(target=hueController.ttr)
 
 def handlemessage(message):
     if 'how are you' in message:
@@ -52,4 +53,19 @@ def handlemessage(message):
             twitterSender.sendmessage("White it is!")
         else:
             twitterSender.sendmessage("I can't help you with that")
+    elif 'taste the rainbow' in message:
+        if keys.hue_ip and keys.hue_api and not keys.ttr_running:
+            keys.stop_ttr = False
+            keys.ttr_running = True
+            twitterSender.sendmessage("Yummy yummy yummy time :)")
+            ttrthread.start()
+        else:
+            twitterSender.sendmessage("I can't help you with that")
+    elif 'sunny day' in message:
+        if keys.hue_ip and keys.hue_api:
+            keys.stop_ttr = True
+            twitterSender.sendmessage("Not even a cloud in the sky!")
+        else:
+            twitterSender.sendmessage("I can't help you with that")
+
 

@@ -11,5 +11,6 @@ api = tweepy.API(auth)
 # Sample method, used to update a status
 #api.update_status('Test3!')
 
+
 def sendmessage(message):
-    api.send_direct_message(screen_name="", text=message)
+    api.send_direct_message(screen_name=keys.twitter_username, text=message)
